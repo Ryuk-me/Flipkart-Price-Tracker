@@ -1,7 +1,9 @@
 const {
     Telegraf
 } = require('telegraf')
-const { Composer } = require('micro-bot')
+const {
+    Composer
+} = require('micro-bot')
 require('dotenv').config()
 const fs = require('fs')
 const axios = require('axios')
@@ -65,11 +67,11 @@ bot.command('add', async (ctx) => {
             fs.appendFileSync(userURLfile, userURL + "\n", 'utf-8', (err, file) => {
 
             });
-            ctx.reply('Link added Sucessfully', {
+            ctx.reply('_Link added Sucessfully_', {
                 parse_mode: 'Markdown'
             })
         } else {
-            ctx.reply('Invalid URL', {
+            ctx.reply('_Invalid URL_', {
                 parse_mode: 'Markdown'
             })
         }
@@ -85,14 +87,10 @@ bot.command('add', async (ctx) => {
                 if (userURL.startsWith('http') || userURL.startsWith('https')) {
 
                     fs.appendFileSync(userURLfile, userURL + "\n", 'utf-8', (err, file) => {});
-                    ctx.reply('Link added Sucessfully', {
-                        parse_mode: 'Markdown'
-                    })
+                    ctx.reply('Link added Sucessfully')
                 } else {
 
-                    ctx.reply('Invalid URL', {
-                        parse_mode: 'Markdown'
-                    })
+                    ctx.reply('Invalid URL');
                 }
 
             }
