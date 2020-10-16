@@ -1,5 +1,5 @@
 {
-  "name": "FkBOT",
+  "name": "Flipkart Price Tracker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,7 @@
     "cheerio": "^1.0.0-rc.3",
     "dot-env": "0.0.1",
     "dotenv": "^8.2.0",
+    "micro-bot": "^2.5.3",
     "nodemon": "^2.0.5",
     "sleep": "^6.3.0",
     "telegraf": "^3.38.0"
@@ -15,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "micro-bot"
   },
   "keywords": [],
   "author": "Ryuk-me",
