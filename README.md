@@ -1,11 +1,13 @@
-# Flipkart-Price-Tracker
+# Flipkart-Price-Tracker 🎇
 
 Track Price Drop of your favourite Product
 
 ---
 ## How to use
-clone this repo `git clone https://github.com/Ryuk-me/Flipkart-Price-Tracker`</br>
-Create a .env file in and put ypur bot toke like `BOT_TOKEN=1275275354:AAHTc6cA1gqLuUdhfgdfgjgdfsdfbdvfvbvvfn`</br> and type command `npm start`
+Clone this repo `git clone https://github.com/Ryuk-me/Flipkart-Price-Tracker`</br>
+
+Create a .env file in and put your bot token like 
+`BOT_TOKEN=1275275354:AAHTc6cA1gqLuUdhfgdfgjgdfsdfbdvfvbvvfn`</br> and type command `npm start`
 
 ---
 ## How to get Telegram BOT TOKEN
