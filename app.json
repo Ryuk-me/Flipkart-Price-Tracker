@@ -1,0 +1,7 @@
+{
+    "name": "Flipkart Price Tracker",
+    "description": "Price Drop Alert",
+    "repository": "https://github.com/Ryuk-me/Flipkart-Price-Tracker",
+    "logo": "https://node-js-sample.herokuapp.com/node.png",
+    "keywords": ["node", "static", "cheerio", "axios"]
+}

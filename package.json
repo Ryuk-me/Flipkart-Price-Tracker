@@ -1,0 +1,24 @@
+{
+  "name": "FkBOT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cheerio": "^1.0.0-rc.3",
+    "dot-env": "0.0.1",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.5",
+    "sleep": "^6.3.0",
+    "telegraf": "^3.38.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-sever": "node app.js"
+  },
+  "keywords": [],
+  "author": "Ryuk-me",
+  "license": "ISC"
+}
