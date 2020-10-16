@@ -8,7 +8,9 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 const sleep = require('util').promisify(setTimeout)
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+var port = process.env.PORT || 8443;
+var host = process.env.HOST;
+const bot = new Telegraf(process.env.BOT_TOKEN,{webHook: {port: port, host: host}})
 
 bot.start((ctx) => ctx.reply('Welcome To *Flipkart PriceTracker BOT*\nContact [@Ryuk_me](tg://user?id=545223894) for any query.\n_/help_ to see how to use', {
     parse_mode: 'Markdown'
