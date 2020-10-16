@@ -4,7 +4,7 @@ Track Price Drop of your favourite Product
 
 ---
 ## How to use
-clone this repo `git clone https://github.com/Ryuk-me/Flipkart-Price-Tracker`
+clone this repo `git clone https://github.com/Ryuk-me/Flipkart-Price-Tracker`</br>
 Create a .env file in and put ypur bot toke like `BOT_TOKEN=1275275354:AAHTc6cA1gqLuUdhfgdfgjgdfsdfbdvfvbvvfn` and type command `npm start`
 
 ---
