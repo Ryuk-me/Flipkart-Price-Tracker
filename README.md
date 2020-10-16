@@ -15,7 +15,7 @@ open telegram search for botfather and get your token from there
 ---
 
 ### Want to try ?
-[![Telegram](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/50px-Telegram_logo.svg.png)](t.me/price_drop_fk_bot)
+[![Telegram](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/50px-Telegram_logo.svg.png)](https://t.me/price_drop_fk_bot)
 
 #### You can fork the repo and deploy on VPS or deploy it on Heroku :)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
