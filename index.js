@@ -74,7 +74,7 @@ bot.command('add', async (ctx) => {
                 parse_mode: 'Markdown'
             })
 
-            priceList = []
+            // priceList = []
 
         } else {
             ctx.reply('_Invalid URL_', {
@@ -97,7 +97,7 @@ bot.command('add', async (ctx) => {
 
             fs.appendFileSync(userURLfile, userURL + "\n", 'utf-8', (err, file) => {});
             ctx.reply('Link added Sucessfully')
-            priceList = []
+            // priceList = []
 
         } else {
 
