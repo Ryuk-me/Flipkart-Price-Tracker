@@ -167,7 +167,7 @@ bot.command('pricetracker', async (ctx) => {
 
                         }
 
-                        priceList = []
+                        // priceList = []
 
                     }
 
