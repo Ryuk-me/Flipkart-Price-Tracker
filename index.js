@@ -150,7 +150,7 @@ bot.command('pricetracker', async (ctx) => {
                         const $ = cheerio.load(html.data)
 
                         const RegexpriceCurrent = parseInt($('div._1vC4OE._3qQ9m1').text().replace(/(₹|,)/gi, ''))
-                        if (RegexpriceCurrent < priceList[i]) {
+                        if (RegexpriceCurrent <= priceList[i]) {
 
                             const title = $('span._35KyD6').text().toString()
                             const price = $('div._1vC4OE._3qQ9m1').text().toString() || ""
