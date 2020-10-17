@@ -160,7 +160,7 @@ bot.command('pricetracker', async (ctx) => {
                                 price: price,
                                 lastPrice: priceList[i],
                                 stock: stock,
-                                url: links[i]
+                                url: links[i] || ""
                             }
 
                             ctx.reply(`Product : ${data['title']}\nCurrent Price : ${data['price']}\nLast Checked Price : ${data['lastPrice']}\nStock Status : ${data['stock']}\nUrl : ${data['url']}`);
