@@ -117,7 +117,7 @@ bot.command('pricetracker', async (ctx) => {
 
     ctx.reply('Checking for Price Change');
 
-    // var priceList = []
+    priceList = []
     async function fkNotifier() {
 
         if (fs.existsSync(userURLfile) === true) {
