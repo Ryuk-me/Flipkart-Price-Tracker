@@ -1,20 +1,16 @@
 const {
     Telegraf
 } = require('telegraf')
-const {
-    Composer
-} = require('micro-bot')
 require('dotenv').config()
 const fs = require('fs')
 const axios = require('axios')
 const cheerio = require('cheerio')
-const sleep = require('util').promisify(setTimeout)
 
 
-// const bot = new Telegraf(process.env.BOT_TOKEN)
-const bot = new Composer
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
-// var priceList = []
+var priceList = []
+var currentPrice = []
 
 bot.start((ctx) => ctx.reply('Welcome To *Flipkart PriceTracker BOT*\nContact [@Ryuk_me](tg://user?id=545223894) for any query.\n_/help_ to see how to use', {
     parse_mode: 'Markdown'
@@ -35,6 +31,7 @@ bot.command('clear', async (ctx) => {
             parse_mode: 'Markdown'
         })
         priceList = []
+        currentPrice = []
 
     } catch (err) {
 
@@ -74,7 +71,6 @@ bot.command('add', async (ctx) => {
                 parse_mode: 'Markdown'
             })
 
-            // priceList = []
 
         } else {
             ctx.reply('_Invalid URL_', {
@@ -97,7 +93,7 @@ bot.command('add', async (ctx) => {
 
             fs.appendFileSync(userURLfile, userURL + "\n", 'utf-8', (err, file) => {});
             ctx.reply('Link added Sucessfully')
-            // priceList = []
+
 
         } else {
 
@@ -117,7 +113,7 @@ bot.command('pricetracker', async (ctx) => {
 
     ctx.reply('Checking for Price Change');
 
-    var priceList = []
+
     async function fkNotifier() {
 
         if (fs.existsSync(userURLfile) === true) {
@@ -125,35 +121,38 @@ bot.command('pricetracker', async (ctx) => {
                 const links = fs.readFileSync(userURLfile, 'utf-8').toString().split("\n").filter(function (el) {
                     return el != '';
                 });
-                // console.log(links.length)
                 if (links.length === 0) {
 
                     return ctx.reply('No link found /add to add link');
                 }
+
                 if (priceList.length < links.length) {
                     priceList = []
                 }
 
-                for (i = 0; i < links.length; i++) {
-                    if (priceList.length === 0 || priceList.length < links.length) {
-
-                        await sleep(60000)
+                if (priceList.length === 0 || priceList.length < links.length) {
+                    for (i = 0; i < links.length; i++) {
                         const html = await axios.get(links[i]);
                         const $ = cheerio.load(html.data)
 
                         const Regexprice = parseInt($('div._1vC4OE._3qQ9m1').text().replace(/(₹|,)/gi, ''))
 
                         priceList.push(Regexprice);
-                    } else {
-                        await sleep(60000)
+                    }
+                }
+                if (priceList.length === links.length) {
+
+                    for (i = 0; i < links.length; i++) {
                         const html = await axios.get(links[i]);
                         const $ = cheerio.load(html.data)
 
                         const RegexpriceCurrent = parseInt($('div._1vC4OE._3qQ9m1').text().replace(/(₹|,)/gi, ''))
+                        currentPrice.push(RegexpriceCurrent)
+
                         if (RegexpriceCurrent < priceList[i]) {
 
                             const title = $('span._35KyD6').text().toString()
-                            const price = $('div._1vC4OE._3qQ9m1').text().toString() || ""
+                            const price = $('div._1vC4OE._3qQ9m1').text().toString()
                             const stock = $("button._2AkmmA._2Npkh4._2kuvG8._7UHT_c").text().trim() || "NOTIFY ME"
                             let data = {
                                 title: title,
@@ -167,11 +166,11 @@ bot.command('pricetracker', async (ctx) => {
 
                         }
 
-                        // priceList = []
-
                     }
-
-
+                }
+                if (currentPrice.length === priceList.length) {
+                    priceList = []
+                    currentPrice = []
                 }
 
             }
@@ -187,6 +186,4 @@ bot.command('pricetracker', async (ctx) => {
 
 })
 
-// bot.launch()
-
-module.exports = bot
+bot.launch()

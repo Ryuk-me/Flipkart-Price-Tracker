@@ -1,7 +1,7 @@
 {
   "name": "FlipkartPriceTracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Track Price Drop of your favourite Product",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.20.0",
@@ -16,9 +16,17 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "micro-bot"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Ryuk-me",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryuk-me/Flipkart-Price-Tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ryuk-me/Flipkart-Price-Tracker/issues"
+  },
+  "homepage": "https://github.com/Ryuk-me/Flipkart-Price-Tracker#readme"
 }
