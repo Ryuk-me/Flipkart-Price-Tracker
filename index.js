@@ -48,7 +48,9 @@ bot.command('urls', async (ctx) => {
         const links = fs.readFileSync(userURLfile, 'utf-8').toString().split("\n").filter(function (el) {
             return el != '';
         });
-        return ctx.reply(links);
+        return ctx.reply(links + "\n\n*Total urls :* " + links.length, {
+            parse_mode: "Markdown"
+        });
     } else {
         return ctx.reply('No url found', {
             parse_mode: 'Markdown'
